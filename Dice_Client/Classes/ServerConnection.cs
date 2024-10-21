@@ -13,7 +13,7 @@ namespace Dice_Client.Classes
     public class ServerConnection
     {
         private static ServerConnection _instance;
-
+        private bool InSession = false;
         private static readonly object _lock = new object();
         private HubConnection _connection;
 
@@ -88,8 +88,48 @@ namespace Dice_Client.Classes
 
             return false;
         }
-
-
+        public async Task<string> GenerateSession(string user)
+        {
+            string output;
+            if (!InSession)
+            {
+                try
+                {
+                    InSession = true;
+                    output = await _connection.InvokeAsync<string>("GenerateSession", user);
+                    return output;
+                }
+                catch (Exception ex)
+                {
+                    InSession = false;
+                    MessageBox.Show($"Failed to generate session {ex.Message}");
+                    return null;
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Already in Session");
+                return null;
+            }
+            
+        }
+        public async Task<bool> ConnectToSession(string id, string user)
+        {
+            if (!InSession)
+            {
+                bool output = await _connection.InvokeAsync<bool>("JoinSession", id, user);
+                if (output)
+                {
+                    InSession = true;
+                }
+                return output;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void Disconnect()
         {
             

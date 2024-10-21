@@ -28,6 +28,50 @@ namespace Dice_Client
             InitializeComponent();
             Username = user;
             connection = ServerConnection.GetInstance();
+            User_Label.Content = user;
+        }
+        
+        private async void Generate(object sender, RoutedEventArgs e)
+        {
+            string id;
+            id = await connection.GenerateSession(Username);
+            if (id == null)
+            {
+                return;
+            }
+            else
+            {
+                ID_Label.Content = id;
+            }
+        }
+
+        private async void Join(object sender, RoutedEventArgs e)
+        {
+            bool status = false;
+            string id = ID_TextBox.Text;
+            if (id != null && id.Length == 6)
+            {
+                 status = await connection.ConnectToSession(id, Username);
+            }
+            else
+            {
+                MessageBox.Show("ID must be 6 characters long!");
+                return;
+            }
+
+            if (status)
+            {
+                MessageBox.Show("Connected to Session");
+
+                ID_Label.Content = id;
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid session ID or already in session");
+            }
+
         }
     }
 }
