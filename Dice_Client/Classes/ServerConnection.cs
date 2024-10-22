@@ -36,7 +36,7 @@ namespace Dice_Client.Classes
             return _instance;
         }
 
-        private async void Connect()
+        private async Task Connect()
         {
             if (_connection == null)
             {
