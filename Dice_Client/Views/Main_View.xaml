@@ -184,7 +184,188 @@
                         </Button.Template>
                     </Button>
         </StackPanel>
-    </Grid>
+                
+                <Grid Grid.Row="2"
+                      Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition />
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Opponent:"
+                                Height="50"
+    FontSize="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    FontWeight="Bold"
+    FontFamily="Montserrat"
+    Foreground="White"/>
+                            <Label Content="Placeholder"
+            Height="50"
+            FontSize="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontWeight="Medium"
+            FontFamily="Montserrat"
+            Foreground="White"/>
+
+                        </StackPanel>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Your score:"
+Height="30"
+FontSize="20"
+
+VerticalAlignment="Center"
+                                   
+FontWeight="Medium"
+FontFamily="Montserrat"
+Foreground="White"/>
+                                <Label x:Name="Label_Score"
+                                       Height="30"
+FontSize="20"
+Content="Placeholder"
+VerticalAlignment="Center"
+                                   
+FontWeight="Medium"
+FontFamily="Montserrat"
+Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Row="2">
+                                <Label Content="Enemy score:"
+Height="30"
+FontSize="20"
+
+VerticalAlignment="Center"
+                                   
+FontWeight="Medium"
+FontFamily="Montserrat"
+Foreground="DarkRed"/>
+                                <Label x:Name="Label_Score_Enemy"
+                                       Height="30"
+FontSize="20"
+Content="Placeholder"
+VerticalAlignment="Center"
+                                   
+FontWeight="Medium"
+FontFamily="Montserrat"
+Foreground="DarkRed"/>
+                            </StackPanel>
+                        </Grid>
+                        
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="dice1" Margin="80,0,0,0" Width="80" Height="80" Grid.Row="2" Grid.Column="2" Source="/Images/dice1.png" />
+                            <Image x:Name="dice2" Margin="80,0,0,0" Width="80" Height="80" Grid.Row="2" Grid.Column="2" Source="/Images/dice1.png" />
+                            <Image x:Name="dice3" Margin="80,0,0,0" Width="80" Height="80" Grid.Row="2" Grid.Column="2" Source="/Images/dice1.png" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <Image x:Name="dice4" Margin="80,0,0,0" Width="80" Height="80" Grid.Row="2" Grid.Column="2" Source="/Images/dice1.png" />
+                            <Image x:Name="dice5" Margin="80,0,0,0" Width="80" Height="80" Grid.Row="2" Grid.Column="2" Source="/Images/dice1.png" />
+                            <Image x:Name="dice6" Margin="80,0,0,0" Width="80" Height="80" Grid.Row="2" Grid.Column="2" Source="/Images/dice1.png" />
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" >
+                        <Button Height="50"
+                     Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Finish and reroll"
+                    FontSize="20"
+                    FontFamily="Montserrat"
+                    Foreground="White"
+                    >
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#FF9500"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFA733"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="180" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button Height="50"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Finish"
+                    FontSize="25"
+                    FontFamily="Montserrat"
+                    Foreground="White"
+                    >
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#FF9500"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFA733"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="180" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button Height="50"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Surrender"
+                    FontSize="25"
+                    FontFamily="Montserrat"
+                    Foreground="White"
+                    >
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Red"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="DarkRed"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="180" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Border>
     </Border>
 </Window>
